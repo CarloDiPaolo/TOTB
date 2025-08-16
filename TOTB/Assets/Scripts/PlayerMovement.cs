@@ -56,4 +56,15 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
+
+    private void SpeedControl()
+    {
+        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+        if (flatVelocity.magnitude > moveSpeed)
+        {
+            Vector3 limVelocity = flatVelocity.normalized * moveSpeed;
+            rb.linearVelocity = new Vector3(limVelocity.x, limVelocity.y, limVelocity.z);
+        }
+    }
 }
