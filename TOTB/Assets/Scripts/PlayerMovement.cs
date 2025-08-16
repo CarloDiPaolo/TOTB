@@ -7,6 +7,12 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float groundDrag;
 
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMutiplier;
+    bool jumpReady;
+
+
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask ground;
@@ -67,4 +73,14 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector3(limVelocity.x, limVelocity.y, limVelocity.z);
         }
     }
+
+    private void Jump()
+    {
+        // y velocity reset
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    
 }
