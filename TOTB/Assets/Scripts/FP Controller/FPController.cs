@@ -8,11 +8,12 @@ namespace FleischWolf
     public class FPController : MonoBehaviour
     {
         [Header("Movement Paramenters")]
-        public float MaxSpeed = 3.5f;
+        public float maxSpeed = 3.5f;
+        public float moveAcceleration = 15f;
 
         [Header("Camera Parameters")]
-        public Vector2 LookSensitivity = new Vector2(0.1f, 0.1f);
-        public float PitchLimit = 85f;
+        public Vector2 lookSensitivity = new Vector2(0.1f, 0.1f);
+        public float pitchLimit = 85f;
         [SerializeField] float currentPitch = 0f;
         public float CurrentPitch
         {
@@ -20,15 +21,15 @@ namespace FleischWolf
 
             set
             {
-                currentPitch = Mathf.Clamp(value, -PitchLimit, PitchLimit);
+                currentPitch = Mathf.Clamp(value, -pitchLimit, pitchLimit);
             }
         }
 
 
 
         [Header("Input")]
-        public Vector2 MoveInput;
-        public Vector2 LookInput;
+        public Vector2 moveInput;
+        public Vector2 lookInput;
 
         [Header("Components")]
         [SerializeField] CinemachineCamera FP_Camera;
@@ -56,18 +57,18 @@ namespace FleischWolf
 
         void MoveUpdate()
         {
-            Vector3 motion = transform.forward * MoveInput.y + transform.right * MoveInput.x;
+            Vector3 motion = transform.forward * moveInput.y + transform.right * moveInput.x;
             motion.y = 0f;
             motion.Normalize();
 
-            characterController.Move(motion * MaxSpeed * Time.deltaTime);
+            characterController.Move(motion * maxSpeed * Time.deltaTime);
 
 
         }
 
         void LookUpdate()
         {
-            Vector2 cameraInput = new Vector2(LookInput.x * LookSensitivity.x, LookInput.y * LookSensitivity.y);
+            Vector2 cameraInput = new Vector2(lookInput.x * lookSensitivity.x, lookInput.y * lookSensitivity.y);
 
             CurrentPitch -= cameraInput.y;
 
