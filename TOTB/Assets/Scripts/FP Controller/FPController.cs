@@ -15,8 +15,8 @@ namespace FleischWolf
         [SerializeField] float walkSpeed = 3.0f;
         [SerializeField] float sprintSpeed = 6.0f;
 
-        public Vector3 currentVelocity { get; private set; }
-        public float currentSpeed { get; private set; }
+        public Vector3 CurrentVelocity { get; private set; }
+        public float CurrentSpeed { get; private set; }
 
         [Header("Camera Parameters")]
         public Vector2 lookSensitivity = new Vector2(0.1f, 0.1f);
@@ -71,20 +71,20 @@ namespace FleischWolf
 
             if (motion.sqrMagnitude >= +0.01f)
             {
-                currentVelocity = Vector3.MoveTowards(currentVelocity, motion * maxSpeed, moveAcceleration * Time.deltaTime);
+                CurrentVelocity = Vector3.MoveTowards(CurrentVelocity, motion * maxSpeed, moveAcceleration * Time.deltaTime);
             }
             else
             {
-                currentVelocity = Vector3.MoveTowards(currentVelocity, Vector3.zero, moveAcceleration * Time.deltaTime);
+                CurrentVelocity = Vector3.MoveTowards(CurrentVelocity, Vector3.zero, moveAcceleration * Time.deltaTime);
             }
 
             float verticalVelocity = Physics.gravity.y * 20f * Time.deltaTime;
 
-            Vector3 fullVelocity = new Vector3(currentVelocity.x, verticalVelocity, currentVelocity.z);
+            Vector3 fullVelocity = new Vector3(CurrentVelocity.x, verticalVelocity, CurrentVelocity.z);
 
             characterController.Move(fullVelocity * Time.deltaTime);
 
-            currentSpeed = currentVelocity.magnitude;
+            CurrentSpeed = CurrentVelocity.magnitude;
 
 
         }
