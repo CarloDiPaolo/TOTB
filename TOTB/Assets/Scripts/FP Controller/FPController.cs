@@ -9,8 +9,11 @@ namespace FleischWolf
     public class FPController : MonoBehaviour
     {
         [Header("Movement Paramenters")]
-        public float maxSpeed = 3.5f;
+        public float maxSpeed => isSprinting ? sprintSpeed : walkSpeed;
         public float moveAcceleration = 15f;
+
+        [SerializeField] float walkSpeed = 3.0f;
+        [SerializeField] float sprintSpeed = 6.0f;
 
         public Vector3 currentVelocity { get; private set; }
         public float currentSpeed { get; private set; }
@@ -34,6 +37,7 @@ namespace FleischWolf
         [Header("Input")]
         public Vector2 moveInput;
         public Vector2 lookInput;
+        public bool isSprinting;
 
         [Header("Components")]
         [SerializeField] CinemachineCamera FP_Camera;

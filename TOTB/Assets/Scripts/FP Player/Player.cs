@@ -27,6 +27,11 @@ namespace FleischWolf
             FPController.lookInput = value.Get<Vector2>();
         }
 
+        void OnSprint(InputValue value)
+        {
+            FPController.isSprinting = value.isPressed;
+        }
+
         #endregion
 
         #region Unity Methods
