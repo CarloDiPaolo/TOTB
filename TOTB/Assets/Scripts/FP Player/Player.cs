@@ -20,7 +20,6 @@ namespace FleischWolf
         void OnMove(InputValue value)
         {
             FPController.moveInput = value.Get<Vector2>();
-
         }
 
         void OnLook(InputValue value)
