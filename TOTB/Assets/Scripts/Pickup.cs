@@ -35,11 +35,16 @@ namespace FleischWolf
             //Object picked up
             if (tempParent != null)
             {
-                isHeld = true;
-                rb.useGravity = false;
-                rb.detectCollisions = true;
+                distance = Vector3.Distance(this.transform.position, tempParent.transform.position);
 
-                this.transform.SetParent(tempParent.transform);
+                if(distance <= maxDistace)
+                {
+                    isHeld = true;
+                    rb.useGravity = false;
+                    rb.detectCollisions = true;
+
+                    this.transform.SetParent(tempParent.transform);
+                }
             }
             else
             {
@@ -60,12 +65,20 @@ namespace FleischWolf
 
         private void Hold()
         {
+            distance = Vector3.Distance(this.transform.position, tempParent.transform.position);
+
+            if(distance >= maxDistace)
+            {
+                Drop();
+            }
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 
             if (Input.GetMouseButtonDown(1))
             {
-                //throw
+                rb.AddForce(tempParent.transform.forward * throwForce);
+
+                Drop();
             }
            
 
