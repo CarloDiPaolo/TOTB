@@ -1202,9 +1202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4115ca326c10247b0185e4904269fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAcceleration: 15
+  moveAcceleration: 30
   walkSpeed: 3
-  sprintSpeed: 100
+  sprintSpeed: 9
   lookSensitivity: {x: 0.1, y: 0.1}
   pitchLimit: 85
   currentPitch: 0
