@@ -1,6 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
+using UnityEngine.InputSystem;
+
 
 
 namespace FleischWolf
@@ -30,7 +30,7 @@ namespace FleischWolf
             }
         }
 
-        private void OnMouseDown()
+        void OnMouseDown()
         {
             //Object picked up
             if (tempParent != null)
@@ -44,7 +44,8 @@ namespace FleischWolf
             else
             {
                 Debug.Log("TempParent not found");
-            }
+            }           
+            //Debug.Log("Object picked up");
         }
 
         private void OnMouseUp()
@@ -62,10 +63,15 @@ namespace FleischWolf
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 
+            if (Input.GetMouseButtonDown(1))
+            {
+                //throw
+            }
+           
 
         }
         
-        public void Throw ()
+        private void Throw ()
         {
             
         }

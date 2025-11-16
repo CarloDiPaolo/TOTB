@@ -4,7 +4,7 @@ namespace FleischWolf
 {
     public class TempParent : MonoBehaviour
     {
-        public static TempParent Instance { get; set; }
+        public static TempParent Instance { get; private set; }
 
         private void Awake()
         {

@@ -32,6 +32,8 @@ namespace FleischWolf
             FPController.isSprinting = value.isPressed;
         }
 
+        
+
         #endregion
 
         #region Unity Methods
@@ -46,6 +48,7 @@ namespace FleischWolf
             Cursor.lockState = CursorLockMode.Locked;
         }
 
+       
         #endregion
     }
 }
