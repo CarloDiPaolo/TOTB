@@ -50,12 +50,12 @@ namespace FleischWolf
 
         private void OnMouseUp()
         {
-            //Object dropped? Maybe?
+            Drop();
         }
 
         private void OnMouseExit()
         {
-            //Same as MouseUp
+            Drop();
         }
 
         private void Hold()
@@ -69,6 +69,18 @@ namespace FleischWolf
             }
            
 
+        }
+
+        private void Drop()
+        {
+            if (isHeld)
+            {
+                isHeld = false;
+                objectPos = this.transform.position;
+                this.transform.position = objectPos;
+                this.transform.SetParent(null);
+                rb.useGravity = true;
+            }
         }
         
         private void Throw ()
