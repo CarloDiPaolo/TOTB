@@ -194,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAcceleration: 30
   walkSpeed: 3
-  sprintSpeed: 9
+  sprintSpeed: 6
   lookSensitivity: {x: 0.1, y: 0.1}
   pitchLimit: 85
   currentPitch: 0
