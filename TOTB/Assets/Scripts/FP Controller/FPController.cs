@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine.InputSystem;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 
@@ -98,6 +99,11 @@ namespace FleischWolf
             FP_Camera.transform.localRotation = Quaternion.Euler(CurrentPitch, 0f, 0f);
 
             transform.Rotate(Vector3.up * cameraInput.x);
+        }
+
+        public void OnGrab()
+        {
+            Debug.Log("Grab Object");
         }
         #endregion
     }

@@ -31,6 +31,8 @@ namespace FleischWolf
         {
             FPController.isSprinting = value.isPressed;
         }
+        
+        
 
         
 
@@ -47,6 +49,8 @@ namespace FleischWolf
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
+        
+  
 
        
         #endregion
