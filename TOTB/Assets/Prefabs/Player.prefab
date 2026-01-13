@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 8009322182556256935}
   - component: {fileID: 2158363518639795324}
   m_Layer: 0
-  m_Name: Temp Parent
+  m_Name: GrabParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
