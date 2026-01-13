@@ -20,6 +20,7 @@ namespace FleischWolf
                 if(raycastHit.transform.TryGetComponent(out Pickup objectGrabbable))
                 {
                     Debug.Log(raycastHit.transform);
+                    objectGrabbable.GrabObject(grabParentTransform);
                 }
             }
             }
