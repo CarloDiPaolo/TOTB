@@ -30,7 +30,7 @@ namespace FleischWolf
             }
         }
 
-        void OnMouseDown()
+       /* void OnMouseDown()
         {
             //Object picked up
             if (tempParent != null)
@@ -51,7 +51,7 @@ namespace FleischWolf
                 Debug.Log("TempParent not found");
             }           
             //Debug.Log("Object picked up");
-        }
+        } */
 
         private void OnMouseUp()
         {
