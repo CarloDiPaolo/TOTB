@@ -101,10 +101,7 @@ namespace FleischWolf
             transform.Rotate(Vector3.up * cameraInput.x);
         }
 
-        public void OnGrab()
-        {
-            Debug.Log("Grab Object");
-        }
+        
         #endregion
     }
 }
