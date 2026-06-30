@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,7 +25,10 @@ namespace FleischWolf
         {
             if (grabParentTransform != null)
             {
-                rb.MovePosition(grabParentTransform.position);
+                float lerpSpeed = 15f;
+                Vector3 newPos = Vector3.Lerp(transform.position, grabParentTransform.position, Time.deltaTime * lerpSpeed);
+
+                rb.MovePosition(newPos);
             }
         }
     }
