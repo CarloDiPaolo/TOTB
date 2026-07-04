@@ -21,6 +21,13 @@ namespace FleischWolf
             rb.useGravity = false;
         }
 
+        public void DropObject()
+        {
+            this.grabParentTransform = null;
+            rb.useGravity = true;
+
+        }
+
         private void Update()
         {
             if (grabParentTransform != null)
