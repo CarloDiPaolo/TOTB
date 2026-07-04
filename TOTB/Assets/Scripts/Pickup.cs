@@ -21,11 +21,11 @@ namespace FleischWolf
             rb.useGravity = false;
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (grabParentTransform != null)
             {
-                float lerpSpeed = 15f;
+                float lerpSpeed = 1000f;
                 Vector3 newPos = Vector3.Lerp(transform.position, grabParentTransform.position, Time.deltaTime * lerpSpeed);
 
                 rb.MovePosition(newPos);
