@@ -24,6 +24,7 @@ namespace FleischWolf
             rb.useGravity = false;
             rb.freezeRotation = true;
             rb.isKinematic = true;
+            transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             objectGrabbed = true;
         }
