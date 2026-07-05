@@ -1,5 +1,7 @@
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 
@@ -10,6 +12,7 @@ namespace FleischWolf
     {
         private Rigidbody rb;
         private Transform grabParentTransform;
+        private bool objectGrabbed = false;
 
         private void Awake()
         {
@@ -19,22 +22,25 @@ namespace FleischWolf
         {
             this.transform.parent = grabParentTransform.transform;
             rb.useGravity = false;
-
             rb.freezeRotation = true;
+            rb.isKinematic = true;
+            transform.localRotation = Quaternion.identity;
+            objectGrabbed = true;
         }
 
         public void DropObject()
         {
             this.transform.parent = null;
-            
             rb.useGravity = true;
-           rb.freezeRotation = false;
+            rb.freezeRotation = false;
+            rb.isKinematic = false;
+            objectGrabbed= false;
 
         }
 
         private void Update()
         {
-            if (grabParentTransform != null)
+            if (objectGrabbed == true)
             {
                 float lerpSpeed = 100f;
                 Vector3 newPos = Vector3.Lerp(transform.position, grabParentTransform.position, Time.deltaTime * lerpSpeed);
