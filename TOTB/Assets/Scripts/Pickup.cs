@@ -17,14 +17,18 @@ namespace FleischWolf
         }
         public void GrabObject(Transform grabParentTransform)
         {
-            this.grabParentTransform = grabParentTransform;
+            this.transform.parent = grabParentTransform.transform;
             rb.useGravity = false;
+
+            rb.freezeRotation = true;
         }
 
         public void DropObject()
         {
-            this.grabParentTransform = null;
+            this.transform.parent = null;
+            
             rb.useGravity = true;
+           rb.freezeRotation = false;
 
         }
 
@@ -32,7 +36,7 @@ namespace FleischWolf
         {
             if (grabParentTransform != null)
             {
-                float lerpSpeed = 1000f;
+                float lerpSpeed = 100f;
                 Vector3 newPos = Vector3.Lerp(transform.position, grabParentTransform.position, Time.deltaTime * lerpSpeed);
 
                 rb.MovePosition(newPos);
