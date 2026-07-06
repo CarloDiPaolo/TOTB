@@ -2214,10 +2214,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 436349043}
     m_Modifications:
-    - target: {fileID: 2070730077579033473, guid: 5c8b69820264f1743943c396afb95334, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 2221598437091787924, guid: 5c8b69820264f1743943c396afb95334, type: 3}
       propertyPath: scoreManager
       value: 
