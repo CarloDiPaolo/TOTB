@@ -1,4 +1,6 @@
+using System;
 using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -10,6 +12,7 @@ namespace FleischWolf
 {
     public class Pickup : MonoBehaviour
     {
+        //public AudioSource audioSource;
         private Rigidbody rb;
         private Transform grabParentTransform;
         private bool objectGrabbed = false;
@@ -39,6 +42,17 @@ namespace FleischWolf
 
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            //audioSource.Play();
+            //Destroy(gameObject, audioSource.clip.length);
+            Destroy(gameObject);
+        }
+
+        
+            
+        
+
         private void Update()
         {
             if (objectGrabbed == true)
@@ -50,4 +64,6 @@ namespace FleischWolf
             }
         }
     }
+
+    
 }
