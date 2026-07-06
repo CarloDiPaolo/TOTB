@@ -16,7 +16,7 @@ namespace FleischWolf
         }
 
 
-        public void AddCoin()
+        public void AddScore()
         {
             pointAmount +=1;
             scoreText.text = pointAmount.ToString();

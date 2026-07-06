@@ -17,9 +17,13 @@ namespace FleischWolf
         private Transform grabParentTransform;
         private bool objectGrabbed = false;
 
+        ScoreManager scoreManager;
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+
+            scoreManager = FindAnyObjectByType<ScoreManager>();
         }
         public void GrabObject(Transform grabParentTransform)
         {
@@ -46,6 +50,7 @@ namespace FleischWolf
         {
             //audioSource.Play();
             //Destroy(gameObject, audioSource.clip.length);
+            scoreManager.AddScore();
             Destroy(gameObject);
         }
 
