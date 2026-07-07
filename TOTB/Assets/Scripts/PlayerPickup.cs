@@ -9,7 +9,8 @@ namespace FleischWolf
     {
         [SerializeField] Transform playerCamTransform; 
         [SerializeField] LayerMask pickupLayerMask;
-        [SerializeField] Transform grabParentTransform;  
+        [SerializeField] Transform grabParentTransform; 
+        [SerializeField] Transform throwTransform;
         public float maxGrabDistance = 0.3f;
 
         private Pickup objectGrabbable;
@@ -25,7 +26,7 @@ namespace FleischWolf
                         if(raycastHit.transform.TryGetComponent(out objectGrabbable))
                         {
                             Debug.Log(raycastHit.transform);
-                            objectGrabbable.GrabObject(grabParentTransform);
+                            objectGrabbable.GrabObject(grabParentTransform, throwTransform);
                         }
                     }
                 } 
@@ -35,5 +36,13 @@ namespace FleischWolf
                     objectGrabbable = null;
                 }
             }
+
+        public void OnThrow()
+        {
+            if (objectGrabbable)
+            {
+                Debug.Log("Throw Object");
+            }
+        }
     }
 }

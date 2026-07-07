@@ -15,7 +15,10 @@ namespace FleischWolf
         //public AudioSource audioSource;
         private Rigidbody rb;
         private Transform grabParentTransform;
+        private Transform throwTransform;
         private bool objectGrabbed = false;
+        public float grabLerp = 10f;
+        
 
         ScoreManager scoreManager;
 
@@ -25,7 +28,7 @@ namespace FleischWolf
 
             scoreManager = FindAnyObjectByType<ScoreManager>();
         }
-        public void GrabObject(Transform grabParentTransform)
+        public void GrabObject(Transform grabParentTransform, Transform throwTransform)
         {
             this.transform.parent = grabParentTransform.transform;
             rb.useGravity = false;
@@ -33,6 +36,10 @@ namespace FleischWolf
             rb.isKinematic = true;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
+            //transform.localPosition = throwTransform.localPosition;
+            
+            //transform.position = Vector3.Lerp(transform.position, Vector3.zero, grabLerp);
+
             objectGrabbed = true;
         }
 
@@ -46,6 +53,12 @@ namespace FleischWolf
 
         }
 
+        public void ReadyThrow()
+        {
+           transform.localPosition = throwTransform.localPosition;
+           
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             //audioSource.Play();
@@ -54,20 +67,6 @@ namespace FleischWolf
             Destroy(gameObject);
         }
 
-        
-            
-        
-
-        private void Update()
-        {
-            if (objectGrabbed == true)
-            {
-                float lerpSpeed = 100f;
-                Vector3 newPos = Vector3.Lerp(transform.position, grabParentTransform.position, Time.deltaTime * lerpSpeed);
-
-                rb.MovePosition(newPos);
-            }
-        }
     }
 
     
