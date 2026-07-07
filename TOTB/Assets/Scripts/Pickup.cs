@@ -17,7 +17,8 @@ namespace FleischWolf
         private Transform grabParentTransform;
         private Transform throwTransform;
         private bool objectGrabbed = false;
-        public float grabLerp = 10f;
+        //public float grabLerp = 10f;
+        
         
 
         ScoreManager scoreManager;
@@ -53,10 +54,16 @@ namespace FleischWolf
 
         }
 
-        public void ReadyThrow()
+        public void ReadyThrow(Transform throwTransform)
         {
            transform.localPosition = throwTransform.localPosition;
            
+        }
+
+        public void Throw(float throwForce)
+        {
+            DropObject();
+            rb.AddForce(transform.forward * throwForce);
         }
 
         private void OnTriggerEnter(Collider other)

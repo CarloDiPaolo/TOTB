@@ -12,6 +12,7 @@ namespace FleischWolf
         [SerializeField] Transform grabParentTransform; 
         [SerializeField] Transform throwTransform;
         public float maxGrabDistance = 0.3f;
+        public float throwForce = 10f;
 
         private Pickup objectGrabbable;
         public void OnGrab()
@@ -42,6 +43,8 @@ namespace FleischWolf
             if (objectGrabbable)
             {
                 Debug.Log("Throw Object");
+                objectGrabbable.ReadyThrow(throwTransform);
+                objectGrabbable.Throw(throwForce);
             }
         }
     }
