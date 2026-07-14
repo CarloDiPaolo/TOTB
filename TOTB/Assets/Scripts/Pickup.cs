@@ -70,6 +70,16 @@ namespace FleischWolf
         {
             //audioSource.Play();
             //Destroy(gameObject, audioSource.clip.length);
+
+            if (other.gameObject.tag == "Trash")
+            {
+                Debug.Log("CORRECT");
+            }
+            else if(other.gameObject.tag != "Trash")
+            {
+                Debug.Log("WRONG");
+            }
+
             scoreManager.AddScore();
             Destroy(gameObject);
         }

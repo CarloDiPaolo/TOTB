@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2221598437091787924}
   m_Layer: 3
   m_Name: Pickup_TrashCube
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,4 +153,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c54e7cb725913340a1b702d28621e23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
