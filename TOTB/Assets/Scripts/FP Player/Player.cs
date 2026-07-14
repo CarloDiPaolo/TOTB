@@ -14,6 +14,9 @@ namespace FleischWolf
     {
         [Header("Components")]
         [SerializeField] FPController FPController;
+        [SerializeField] Transform playerCamTransform; 
+        public float maxInteractDistance;
+        private Interactable interactable;
 
         #region Input Handling
 
@@ -30,6 +33,18 @@ namespace FleischWolf
         void OnSprint(InputValue value)
         {
             FPController.isSprinting = value.isPressed;
+        }
+
+        void OnInteract()
+        {
+            if (Physics.Raycast(playerCamTransform.position, playerCamTransform.forward, out RaycastHit raycastHit, maxInteractDistance))
+                    {
+                        if(raycastHit.transform.gameObject.TryGetComponent(out interactable))
+                        {
+                            interactable.Interact();
+                        }
+                    }
+            
         }
 
         

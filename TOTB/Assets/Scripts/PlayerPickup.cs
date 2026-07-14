@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,8 @@ namespace FleischWolf
         public float throwForce = 10f;
 
         private Pickup objectGrabbable;
+
+        
         public void OnGrab()
             {
                 if (objectGrabbable == null)
@@ -47,5 +50,7 @@ namespace FleischWolf
                 objectGrabbable.Throw(throwForce);
             }
         }
+
+        
     }
 }
