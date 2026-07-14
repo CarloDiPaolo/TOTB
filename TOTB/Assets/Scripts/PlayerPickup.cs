@@ -26,7 +26,7 @@ namespace FleischWolf
                     {
                         if(raycastHit.transform.TryGetComponent(out objectGrabbable))
                         {
-                            Debug.Log(raycastHit.transform);
+                            //Debug.Log(raycastHit.transform);
                             objectGrabbable.GrabObject(grabParentTransform, throwTransform);
                         }
                     }
@@ -42,7 +42,7 @@ namespace FleischWolf
         {
             if (objectGrabbable)
             {
-                Debug.Log("Throw Object");
+                //Debug.Log("Throw Object");
                 objectGrabbable.ReadyThrow(throwTransform);
                 objectGrabbable.Throw(throwForce);
             }
