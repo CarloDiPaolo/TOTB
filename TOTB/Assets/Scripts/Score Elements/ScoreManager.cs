@@ -22,6 +22,12 @@ namespace FleischWolf
             scoreText.text = pointAmount.ToString();
         }
 
+        public void SubScore()
+        {
+            pointAmount -=1;
+            scoreText.text = pointAmount.ToString();
+        }
+
 
         
 
