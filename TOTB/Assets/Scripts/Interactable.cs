@@ -4,7 +4,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
 
-    public Animator animator;
+    private Animator animator;
 
     private bool binOpened = false;
     void Start()

@@ -14,6 +14,7 @@ namespace FleischWolf
     {
         //public AudioSource audioSource;
         private Rigidbody rb;
+        private Collider col;
         private Transform grabParentTransform;
         private Transform throwTransform;
         private bool objectGrabbed = false;
@@ -26,6 +27,7 @@ namespace FleischWolf
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            col = GetComponent<Collider>();
 
             scoreManager = FindAnyObjectByType<ScoreManager>();
         }
@@ -35,6 +37,7 @@ namespace FleischWolf
             rb.useGravity = false;
             rb.freezeRotation = true;
             rb.isKinematic = true;
+            col.enabled = false;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             //transform.localPosition = throwTransform.localPosition;
@@ -51,6 +54,7 @@ namespace FleischWolf
             rb.freezeRotation = false;
             rb.isKinematic = false;
             objectGrabbed= false;
+            col.enabled = true;
 
         }
 
