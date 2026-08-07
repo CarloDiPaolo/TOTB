@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_AngularDamping
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 2070730077579033473, guid: 5c8b69820264f1743943c396afb95334, type: 3}
+      propertyPath: m_InertiaTensor.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070730077579033473, guid: 5c8b69820264f1743943c396afb95334, type: 3}
+      propertyPath: m_InertiaTensor.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070730077579033473, guid: 5c8b69820264f1743943c396afb95334, type: 3}
+      propertyPath: m_InertiaTensor.z
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4082641914628289044, guid: 5c8b69820264f1743943c396afb95334, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.61

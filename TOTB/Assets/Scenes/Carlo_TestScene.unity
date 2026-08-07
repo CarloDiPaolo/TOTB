@@ -7258,7 +7258,7 @@ MonoBehaviour:
   grabParentTransform: {fileID: 2050135316}
   throwTransform: {fileID: 1489131787}
   maxGrabDistance: 2
-  throwForce: 1000
+  throwForce: 250
 --- !u!43 &1698770270
 Mesh:
   m_ObjectHideFlags: 0
