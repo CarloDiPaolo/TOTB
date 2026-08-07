@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 
     public Animator animator;
 
-    public 
+    private bool binOpened = false;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -14,8 +14,19 @@ public class Interactable : MonoBehaviour
     
     public void Interact()
     {
-        Debug.Log("Play Interaction");
-        animator.Play("Bin_Open");
+        //Debug.Log("Play Interaction");
+        if (!binOpened)
+        {
+            animator.Play("Bin_Open");
+            binOpened = true;
+        }
+        else if (binOpened)
+        {
+            animator.Play("Bin_Close");
+            binOpened = false;
+        }
+
+       
         
     }
 
